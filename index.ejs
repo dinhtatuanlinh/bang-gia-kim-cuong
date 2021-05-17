@@ -41,7 +41,7 @@
 
 
                 <div class="bgkc-col">
-                    <%= data.gia %>
+                    <%= new Intl.NumberFormat('de-DE').format(data.gia) %>
                 </div>
                 <div class="bgkc-col">
                     <a href="https://www.gia.edu/report-check?reportno=<%= data.maso %>">
