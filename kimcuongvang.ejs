@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class="content" id="<%= shape %>">
+        <h2><i class="icon icon-diamond-<%= shape %>"></i> Bảng giá kim cương vàng Fancy kiểu
+            <%= shape %>
+        </h2>
+        <div class="box">
+            <table class="destop-width">
+                <thead>
+                    <tr>
+                        <th><strong>Kích thước</strong></th>
+                        <th><strong>Chất lượng</strong></th>
+                        <th><strong>Giá</strong></th>
+                        <th><strong>GIA</strong></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% datas.forEach(function(data){ %>
+                        <tr>
+                            <td>
+                                <%= data.ly %>
+                            </td>
+                            <td>
+                                <%= data.nuocmau %>,
+                                    <%= data.dosach %>
+                            </td>
+                            <td>
+                                <%= new Intl.NumberFormat('de-DE').format(data.price) %>
+                            </td>
+                            <td>
+                                <a target="_blank" rel="nofollow noopener" href="https://www.gia.edu/report-check?reportno=<%= data.gia %>">
+                                    <%= data.gia %>
+                                </a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

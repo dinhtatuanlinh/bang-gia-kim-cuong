@@ -10,10 +10,10 @@
 
 
 <body>
-
-    <div class="bgkc-tab-content all <%= ly %>">
-        <div class="bgkc-title">GIÁ SỈ KIM CƯƠNG GIA
-            <%= title %>
+    <% datas.forEach(function(data){ %>
+    <div class="bgkc-tab-content all <%= data.ly %>">
+        <div class="bgkc-title">GIÁ LẺ KIM CƯƠNG GIA
+            <%= data.title %>
         </div>
         <div class="bgkc-row">
 
@@ -25,34 +25,34 @@
             <div class="bgkc-col bgkc-head">Giá VNĐ</div>
             <div class="bgkc-col bgkc-head">Mã số GIA</div>
         </div>
-        <% datas.forEach(function(data){ %>
+        <% data.data.forEach(element=>{ %>
             <div class="bgkc-row">
 
                 <div class="bgkc-col">
-                    <%= data.kichco %>
+                    <%= element.kichco %>
                 </div>
 
                 <div class="bgkc-col">
-                    <%= data.nuocmau %>
+                    <%= element.nuocmau %>
                 </div>
                 <div class="bgkc-col">
-                    <%= data.dosach %>
+                    <%= element.dosach %>
                 </div>
 
 
                 <div class="bgkc-col">
-                    <%= new Intl.NumberFormat('de-DE').format(data.gia) %>
+                    <%= new Intl.NumberFormat('de-DE').format(element.gia) %>
                 </div>
                 <div class="bgkc-col">
-                    <a target="_blank" rel="nofollow noopener" href="https://www.gia.edu/report-check?reportno=<%= data.maso %>">
-                        <%= data.maso %>
+                    <a target="_blank" rel="nofollow noopener" href="https://www.gia.edu/report-check?reportno=<%= element.maso %>">
+                        <%= element.maso %>
                     </a>
                 </div>
             </div>
             <% }) %>
                 <div class="bgkc-footer"><img src="https://jemmia.vn/wp-content/uploads/2021/04/vien-bang-gia-01-1.jpg" alt="" /></div>
     </div>
-
+    <% }) %>
 </body>
 
 </html>

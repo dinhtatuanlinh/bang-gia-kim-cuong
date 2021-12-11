@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class="content" id="<%= shape %>">
+        <h2><i class="icon icon-diamond-<%= shape %>"></i>
+            <%= shape %> Moissanite shape</h2>
+        <div class="box">
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th><strong>Ly</strong></th>
+                        <!-- <th><strong>Carat</strong></th> -->
+                        <th><strong>Trắng</strong></th>
+                        <th><strong>Xanh</strong></th>
+                        <th><strong>Vàng</strong></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% datas.forEach(function(data){ %>
+                        <tr>
+                            <td>
+                                <%= data.ly %>
+                            </td>
+                            <!-- <td><%= data.carat %></td> -->
+                            <td>
+                                <%= new Intl.NumberFormat('de-DE').format(data.trang) %>
+                            </td>
+                            <td>
+                                <%= new Intl.NumberFormat('de-DE').format(data.xanh) %>
+                            </td>
+                            <td>
+                                <%= new Intl.NumberFormat('de-DE').format(data.vang) %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

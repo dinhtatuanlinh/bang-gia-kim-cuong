@@ -4,7 +4,7 @@
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node app.js"
+        "start": "nodemon app.js"
     },
     "author": "",
     "license": "ISC",
@@ -12,6 +12,7 @@
     "dependencies": {
         "convert-excel-to-json": "^1.7.0",
         "ejs": "^3.1.6",
-        "formidable": "^1.2.2"
+        "formidable": "^1.2.2",
+        "nodemon": "^2.0.15"
     }
 }

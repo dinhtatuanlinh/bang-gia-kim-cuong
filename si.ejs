@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <% datas.forEach(function(data){ %>
+    <div class="bgkc-tab-content all <%= data.ly %>">
+        <div class="bgkc-title">GIÁ SỈ KIM CƯƠNG GIA
+            <%= data.title %>
+        </div>
+        <div class="bgkc-row">
+
+            <div class="bgkc-col bgkc-head">Kích cỡ (ly)</div>
+
+            <div class="bgkc-col bgkc-head">Nước màu</div>
+            <div class="bgkc-col bgkc-head">Độ sạch</div>
+
+            <div class="bgkc-col bgkc-head">Giá VNĐ</div>
+            <div class="bgkc-col bgkc-head">Mã số GIA</div>
+        </div>
+        <% data.data.forEach(element=>{ %>
+            <div class="bgkc-row">
+
+                <div class="bgkc-col">
+                    <%= element.kichco %>
+                </div>
+
+                <div class="bgkc-col">
+                    <%= element.nuocmau %>
+                </div>
+                <div class="bgkc-col">
+                    <%= element.dosach %>
+                </div>
+
+
+                <div class="bgkc-col">
+                    <%= new Intl.NumberFormat('de-DE').format(element.gia) %>
+                </div>
+                <div class="bgkc-col">
+                    <a target="_blank" rel="nofollow noopener" href="https://www.gia.edu/report-check?reportno=<%= element.maso %>">
+                        <%= element.maso %>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
+                <div class="bgkc-footer"><img src="https://jemmia.vn/wp-content/uploads/2021/04/vien-bang-gia-01-1.jpg" alt="" /></div>
+    </div>
+    <% }) %>
+</body>
+
+</html>
