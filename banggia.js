@@ -6,7 +6,7 @@ const excelToJson = require("convert-excel-to-json");
 var ejs = require("ejs");
 
 const loop = require("./services/loop");
-var Port = normalizePort(process.env.PORT || 1000);
+var Port = normalizePort(process.env.PORT || 8988);
 var Dich_vu = http.createServer(async function (req, res) {
     res.writeHead(200, { "Content-Type": "text/html" });
     var receivedString = "";
@@ -15,7 +15,7 @@ var Dich_vu = http.createServer(async function (req, res) {
     }); // nhận dữ liệu từ client gửi lên
     // console.log(receivedString);
     //Nếu request là uplooad và method là post
-    console.log(req.url);
+
 
     if (req.url === "/si") {
         var datas = [];
@@ -60,7 +60,7 @@ var Dich_vu = http.createServer(async function (req, res) {
             //     console.log(data);
             //     datas.push(data);
             // });
-            console.log(datas);
+
 
             fs.readFile("si.ejs", "utf-8", function (err, content) {
                 if (err) {
@@ -117,7 +117,6 @@ var Dich_vu = http.createServer(async function (req, res) {
             //     console.log(data);
             //     datas.push(data);
             // });
-            console.log(datas);
 
             fs.readFile("le.ejs", "utf-8", function (err, content) {
                 if (err) {
@@ -158,14 +157,13 @@ var Dich_vu = http.createServer(async function (req, res) {
                     data.push(element);
                     if (i == 0) {
                         shape = element.title;
-                        console.log(element.title);
+                        
                     }
                     i++;
                 });
             };
             delay().then(async () => {
-                console.log(data);
-                console.log(shape);
+
                 fs.readFile(
                     "kimcuongvang.ejs",
                     "utf-8",
@@ -219,13 +217,13 @@ var Dich_vu = http.createServer(async function (req, res) {
                 });
             };
             delay().then(async () => {
-                console.log(data);
+
                 fs.readFile("moissanite.ejs", "utf-8", function (err, content) {
                     if (err) {
                         res.end("error occurred");
                         return;
                     }
-                    console.log(title);
+
                     var renderedHtml = ejs.render(content, {
                         datas: data,
                         shape: shape,
@@ -264,14 +262,13 @@ var Dich_vu = http.createServer(async function (req, res) {
                     data.push(element);
                     if (i == 0) {
                         shape = element.title;
-                        console.log(element.title);
+
                     }
                     i++;
                 });
             };
             delay().then(async () => {
-                console.log(data);
-                console.log(shape);
+
                 fs.readFile("fancy.ejs", "utf-8", function (err, content) {
                     if (err) {
                         res.end("error occurred");
