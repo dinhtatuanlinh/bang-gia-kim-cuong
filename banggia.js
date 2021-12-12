@@ -16,7 +16,10 @@ var Dich_vu = http.createServer(async function (req, res) {
     // console.log(receivedString);
     //Nếu request là uplooad và method là post
 
-
+    if (req.url === "/deleteexcel") {
+        await fs.rmSync("./excels", { recursive: true });
+        res.end('fasdf');
+    }
     if (req.url === "/si") {
         var datas = [];
 
@@ -39,8 +42,8 @@ var Dich_vu = http.createServer(async function (req, res) {
             });
 
             result = Object.values(result);
-            for(i=0; i<result.length; i++){
-                let a= result[i];
+            for (i = 0; i < result.length; i++) {
+                let a = result[i];
                 a.shift();
                 let data = await loop(a);
                 datas.push(data);
@@ -60,7 +63,6 @@ var Dich_vu = http.createServer(async function (req, res) {
             //     console.log(data);
             //     datas.push(data);
             // });
-
 
             fs.readFile("si.ejs", "utf-8", function (err, content) {
                 if (err) {
@@ -96,8 +98,8 @@ var Dich_vu = http.createServer(async function (req, res) {
             });
 
             result = Object.values(result);
-            for(i=0; i<result.length; i++){
-                let a= result[i];
+            for (i = 0; i < result.length; i++) {
+                let a = result[i];
                 a.shift();
                 let data = await loop(a);
                 datas.push(data);
@@ -157,13 +159,11 @@ var Dich_vu = http.createServer(async function (req, res) {
                     data.push(element);
                     if (i == 0) {
                         shape = element.title;
-                        
                     }
                     i++;
                 });
             };
             delay().then(async () => {
-
                 fs.readFile(
                     "kimcuongvang.ejs",
                     "utf-8",
@@ -217,7 +217,6 @@ var Dich_vu = http.createServer(async function (req, res) {
                 });
             };
             delay().then(async () => {
-
                 fs.readFile("moissanite.ejs", "utf-8", function (err, content) {
                     if (err) {
                         res.end("error occurred");
@@ -262,13 +261,11 @@ var Dich_vu = http.createServer(async function (req, res) {
                     data.push(element);
                     if (i == 0) {
                         shape = element.title;
-
                     }
                     i++;
                 });
             };
             delay().then(async () => {
-
                 fs.readFile("fancy.ejs", "utf-8", function (err, content) {
                     if (err) {
                         res.end("error occurred");
