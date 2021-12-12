@@ -17,8 +17,18 @@ var Dich_vu = http.createServer(async function (req, res) {
     //Nếu request là uplooad và method là post
 
     if (req.url === "/deleteexcel") {
-        await fs.rmSync("./excels", { recursive: true });
-        res.end('fasdf');
+        let dir = "./excels"
+        if (await fs.existsSync(dir)) {
+            await fs.rmSync(dir, { recursive: true });
+            res.writeHead(302, {
+                'Location': '/'
+                //add other headers here...
+            });
+            res.end();
+        } else {
+            res.end('Chưa có folder excels');
+        }
+        
     }
     if (req.url === "/si") {
         var datas = [];
