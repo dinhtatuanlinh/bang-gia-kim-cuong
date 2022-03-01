@@ -23,7 +23,7 @@
             <div class="bgkc-col bgkc-head">Độ sạch</div>
 
             <div class="bgkc-col bgkc-head">Giá VNĐ</div>
-            <div class="bgkc-col bgkc-head">Mã số GIA</div>
+            <!-- <div class="bgkc-col bgkc-head">Mã số GIA</div> -->
         </div>
         <% data.data.forEach(element=>{ %>
             <div class="bgkc-row">
@@ -43,11 +43,11 @@
                 <div class="bgkc-col">
                     <%= new Intl.NumberFormat('de-DE').format(element.gia) %>
                 </div>
-                <div class="bgkc-col">
+                <!-- <div class="bgkc-col">
                     <a target="_blank" rel="nofollow noopener" href="https://www.gia.edu/report-check?reportno=<%= element.maso %>">
                         <%= element.maso %>
                     </a>
-                </div>
+                </div> -->
             </div>
             <% }) %>
                 <div class="bgkc-footer"><img src="https://jemmia.vn/wp-content/uploads/2021/04/vien-bang-gia-01-1.jpg" alt="" /></div>

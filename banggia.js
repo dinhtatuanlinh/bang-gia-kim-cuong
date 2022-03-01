@@ -101,9 +101,8 @@ var Dich_vu = http.createServer(async function (req, res) {
                     B: "nuocmau",
                     C: "dosach",
                     D: "gia",
-                    E: "maso",
-                    F: "ly",
-                    G: "title",
+                    E: "ly",
+                    F: "title",
                 },
             });
 
@@ -129,7 +128,7 @@ var Dich_vu = http.createServer(async function (req, res) {
             //     console.log(data);
             //     datas.push(data);
             // });
-
+            console.log(datas);
             fs.readFile("le.ejs", "utf-8", function (err, content) {
                 if (err) {
                     res.end("error occurred");
