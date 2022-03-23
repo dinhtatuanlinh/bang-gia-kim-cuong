@@ -30,6 +30,45 @@ var Dich_vu = http.createServer(async function (req, res) {
         }
         
     }
+    if (req.url === "/dauTuGiaTot") {
+        var datas = [];
+
+        var form = new formidable.IncomingForm();
+        form.uploadDir = "excels/";
+        form.parse(req, async (err, fields, file) => {
+            var path = file.calendar.path;
+            var result = excelToJson({
+                source: fs.readFileSync(path),
+                // source: fs.readFileSync(form.uploadDir + file.paticipantlist.name),
+                columnToKey: {
+                    A: "ly",
+                    B: "maso",
+                    C: "gia",
+                    D: "giaGiam",
+                },
+            });
+            console.log(result);
+            result = Object.values(result);
+            for (i = 0; i < result.length; i++) {
+                let a = result[i];
+                a.shift();
+                let data = await loop(a);
+                datas.push(data);
+            }
+
+            console.log(datas[0]);
+            fs.readFile("dauTuGiaTot.ejs", "utf-8", function (err, content) {
+                if (err) {
+                    res.end("error occurred");
+                    return;
+                }
+                var renderedHtml = ejs.render(content, { datas }); //get redered HTML code
+                res.end(renderedHtml);
+            });
+        });
+
+        return;
+    }
     if (req.url === "/si") {
         var datas = [];
 
