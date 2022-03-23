@@ -21,6 +21,7 @@
             <div class="bgkc-col bgkc-head">Giá thị trường</div>
 
             <div class="bgkc-col bgkc-head">Giá Jemmia</div>
+            <div class="bgkc-col bgkc-head">Tiết kiệm được</div>
             <!-- <div class="bgkc-col bgkc-head">Mã số GIA</div> -->
         </div>
         <% data.data.forEach(element=>{ %>
@@ -40,6 +41,10 @@
                 </div>
                 <div class="bgkc-col">
                     <%= new Intl.NumberFormat('de-DE').format(element.giaGiam) %>
+                </div>
+                <div class="bgkc-col">
+                    <%= new Intl.NumberFormat('de-DE').format(element.save) %>
+
                 </div>
             </div>
             <% }) %>

@@ -45,6 +45,7 @@ var Dich_vu = http.createServer(async function (req, res) {
                     B: "maso",
                     C: "gia",
                     D: "giaGiam",
+                    E: "save"
                 },
             });
             console.log(result);
